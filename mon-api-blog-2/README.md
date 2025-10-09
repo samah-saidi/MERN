@@ -20,8 +20,8 @@ Connaissances basiques Express.js
 # ⚡ Installation rapide (setup initial)
 ```bash
 # Créer le dossier du projet
-mkdir mon-api-blog
-cd mon-api-blog
+mkdir mon-api-blog-2
+cd mon-api-blog-2
 
 # initialiser npm
 npm init -y
@@ -43,7 +43,7 @@ Dans package.json tu peux ajouter un script dev :
 
 📁 Arborescence cible
 ```bash
-mon-api-blog/
+mon-api-blog-2/
 ├── controllers/
 │   ├── articleController.js
 │   └── userController.js      <-- TP complémentaire
@@ -65,7 +65,8 @@ mkdir routes
 
 ## ⚙️ Étape 2 : Création du Contrôleur d’Articles
 
-### ⚙️ Créer le contrôleur controllers/articleController.js
+ ⚙️ Créer le contrôleur controllers/articleController.js
+
 ```js
 // controllers/articleController.js
 
@@ -93,7 +94,8 @@ module.exports = { testApi, createArticle };
 ```
 ## 🚦 Étape 3 : Création du Routeur d’Articles 
 
-### 🚦 Créer le routeur routes/articleRoutes.js
+ 🚦 Créer le routeur routes/articleRoutes.js
+ 
 ```js
 // routes/articleRoutes.js
 const express = require('express');
