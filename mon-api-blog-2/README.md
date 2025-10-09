@@ -1,7 +1,8 @@
 # 🚀 MERN – Semaine 2 : Structuration de l’API avec Routes et Contrôleurs
 
-👨‍💻 Formateur : Abdelweheb GUEDDES 
-🏫 École : École Polytechnique Sousse
+##### 👨‍💻 Formateur : Abdelweheb GUEDDES 
+
+##### 🏫 École : École Polytechnique Sousse
 ---
 
 # 🎯 Objectifs Pédagogiques
