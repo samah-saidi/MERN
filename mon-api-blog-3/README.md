@@ -43,25 +43,25 @@ mon-api-blog-3/
 ## Architecture MVC de l'Application
 ```bsh
 ┌─────────────────────────────────────────────────────────────────┐
-│                         CLIENT (Postman)                         │
-│                    Envoie des requêtes HTTP                      │
+│                         CLIENT (Postman)                        │
+│                    Envoie des requêtes HTTP                     │
 └────────────────────────────┬────────────────────────────────────┘
                              │
                              ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│                          SERVER.JS                               │
-│                    (Point d'entrée)                              │
-│  • Charge les variables d'environnement (.env)                   │
-│  • Établit la connexion à MongoDB                                │
-│  • Configure les middlewares (express.json)                      │
-│  • Monte les routes                                              │
+│                          SERVER.JS                              │
+│                    (Point d'entrée)                             │
+│  • Charge les variables d'environnement (.env)                  │
+│  • Établit la connexion à MongoDB                               │
+│  • Configure les middlewares (express.json)                     │
+│  • Monte les routes                                             │
 └────────────────────────────┬────────────────────────────────────┘
                              │
                              ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│                          ROUTES                                  │
-│           (articleRoutes.js / userRoutes.js)                     │
-│                                                                   │
+│                          ROUTES                                 │
+│           (articleRoutes.js / userRoutes.js)                    │
+│                                                                 │
 │  GET  /api/users      ──────► getAllUsers()                     │
 │  POST /api/users      ──────► createUser()                      │
 │  GET  /api/articles   ──────► getAllArticles()                  │
@@ -70,10 +70,10 @@ mon-api-blog-3/
                              │
                              ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│                       CONTROLLERS                                │
-│        (articleController.js / userController.js)                │
-│                   (Logique métier)                               │
-│                                                                   │
+│                       CONTROLLERS                               │
+│        (articleController.js / userController.js)               │
+│                   (Logique métier)                              │
+│                                                                 │
 │  • Reçoit la requête (req) et la réponse (res)                  │
 │  • Utilise async/await pour les opérations asynchrones          │
 │  • Appelle les méthodes du Modèle                               │
@@ -83,15 +83,15 @@ mon-api-blog-3/
                              │
                              ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│                         MODELS                                   │
-│              (Article.js / User.js)                              │
-│                  (Schéma + Modèle Mongoose)                      │
-│                                                                   │
-│  SCHÉMA : Définit la structure des données                       │
+│                         MODELS                                  │
+│              (Article.js / User.js)                             │
+│                  (Schéma + Modèle Mongoose)                     │
+│                                                                 │
+│  SCHÉMA : Définit la structure des données                      │
 │  • Champs (title, email, password...)                           │
 │  • Types (String, Number, Date...)                              │
 │  • Validations (required, unique, minlength...)                 │
-│                                                                   │
+│                                                                 │
 │  MODÈLE : Interface pour interagir avec MongoDB                 │
 │  • Model.find()      → Lire tous les documents                  │
 │  • Model.findById()  → Lire un document par ID                  │
@@ -101,9 +101,9 @@ mon-api-blog-3/
                              │
                              ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│                      MONGOOSE (ODM)                              │
-│              Object Data Modeling Library                        │
-│                                                                   │
+│                      MONGOOSE (ODM)                             │
+│              Object Data Modeling Library                       │
+│                                                                 │
 │  • Traduit les objets JavaScript en documents MongoDB           │
 │  • Valide les données selon le schéma                           │
 │  • Gère les connexions et les requêtes                          │
@@ -111,18 +111,18 @@ mon-api-blog-3/
                              │
                              ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│                    MongoDB Atlas (Cloud)                         │
-│                      Base de Données                             │
-│                                                                   │
-│  Database: blogDB                                                │
-│  ├── Collection: users                                           │
-│  │   ├── Document 1: { _id, username, email, password... }     │
-│  │   ├── Document 2: { _id, username, email, password... }     │
+│                    MongoDB Atlas (Cloud)                        │
+│                      Base de Données                            │
+│                                                                 │
+│  Database: blogDB                                               │
+│  ├── Collection: users                                          │
+│  │   ├── Document 1: { _id, username, email, password... }      │
+│  │   ├── Document 2: { _id, username, email, password... }      │
 │  │   └── Document 3: ...                                        │
-│  │                                                               │
-│  └── Collection: articles                                        │
-│      ├── Document 1: { _id, title, content, author... }        │
-│      ├── Document 2: { _id, title, content, author... }        │
+│  │                                                              │
+│  └── Collection: articles                                       │
+│      ├── Document 1: { _id, title, content, author... }         │
+│      ├── Document 2: { _id, title, content, author... }         │
 │      └── Document 3: ...                                        │
 └─────────────────────────────────────────────────────────────────┘
 ```
@@ -162,6 +162,7 @@ module.exports = mongoose.model('Article', articleSchema);
 Créez un compte sur MongoDB Atlas
 
 👉 ou bien installez MongoDB localement sur votre machine.
+
 (Dans ce cas, la chaîne de connexion sera du type : mongodb://127.0.0.1:27017/blogDB)
 
 Créez un cluster gratuit (M0) si vous utilisez Atlas
@@ -386,11 +387,11 @@ Vous devriez recevoir un tableau JSON avec tous vos articles :
 
 👩‍💻 Créez un modèle Utilisateur (User.js) avec les champs :
 
-** - username (String, requis, unique) **
+**- username (String, requis, unique)**
 
-** - email (String, requis, unique) ** 
+**- email (String, requis, unique)** 
 
-** - password (String, requis) --
+**- password (String, requis) --**
 
 ```js
 const mongoose = require('mongoose');
@@ -522,6 +523,7 @@ Résultat attendu :
 ![Résultat](images/Capture%205.png)
 
 ✅ Statut : 201 Created
+
 Sauvegardez cette requête dans le dossier "Users" avec le nom : "Create User - Success"
 
 🧪 Test - Récupérer Tous les Utilisateurs
@@ -536,16 +538,21 @@ Résultat attendu :
 ![Résultat](images/Capture%206.png)
 
 ✅ Statut : 200 OK
+
 Sauvegardez avec le nom : "Get All Users"
 
 🧪 Test  - Erreur : Username Dupliqué
-Méthode : POST
-URL : http://localhost:3000/api/users
-json{
+
+- Méthode : POST
+- URL : http://localhost:3000/api/users
+
+```json
+{
   "username": "john_doe",
   "email": "newemail@example.com",
   "password": "password123"
 }
+```
 Résultat attendu :
 
 ![Résultat](images/Capture%207.png)
@@ -572,14 +579,20 @@ Sauvegardez avec le nom : "Create User - Duplicate Username"
 
 --- 
 
-** En résumé ** 
+**En résumé** 
 
 ✅ API REST fonctionnelle avec MongoDB et Mongoose
+
 ✅ Maîtrise de la programmation asynchrone (async/await)
+
 ✅ Architecture MVC propre et maintenable
+
 ✅ Validation complète des données
+
 ✅ Gestion robuste des erreurs
+
 ✅ 16/16 tests réussis (100%)
+
 ✅ Base solide pour les développements futurs
 
 ```markdown
@@ -600,11 +613,16 @@ MONGODB
 CLIENT
 ``` 
 
-** Prochaines étapes **
+**Prochaines étapes**
 
 🎯 Compléter le CRUD (Update, Delete)
+
 🎯 Implémenter l'authentification JWT
+
 🎯 Hasher les mots de passe avec bcrypt
+
 🎯 Ajouter des relations entre modèles
+
 🎯 Mettre en place la pagination
+
 🎯 Déployer l'application en production
