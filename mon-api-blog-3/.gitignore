@@ -1,5 +1,21 @@
+# Node modules
 node_modules/
-.env
+
+# Logs
+logs/
 *.log
+npm-debug.log*
+
+# Environment variables
+.env
+
+# OS files
 .DS_Store
-package-lock.json
+Thumbs.db
+
+# Build directories
+dist/
+build/
+
+# Optional: MongoDB local data
+data/
