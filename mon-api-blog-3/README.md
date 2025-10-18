@@ -99,7 +99,7 @@ npm install mongoose dotenv
 
 #### 🔐 Fichier .env
 ```env
-MONGODB_URI=mongodb+srv://user:password@cluster.mongodb.net/dbname
+MONGODB_URI=mongodb+srv ://user: strongPassword123@cluster0.xxxxx.mongodb .net/ blogDB ? retryWrites = true &w= majority
 
 <!-- pour MongoDB -->
 # MONGODB_URI=mongodb://localhost:27017/mon-api-blog-3
