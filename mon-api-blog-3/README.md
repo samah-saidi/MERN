@@ -39,6 +39,93 @@ mon-api-blog-3/
 ├── README.md                 # Dépendances du projet
 └── server.js                 # Point d'entrée de l'application
 ```
+
+## Architecture MVC de l'Application
+
+┌─────────────────────────────────────────────────────────────────┐
+│                         CLIENT (Postman)                         │
+│                    Envoie des requêtes HTTP                      │
+└────────────────────────────┬────────────────────────────────────┘
+                             │
+                             ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                          SERVER.JS                               │
+│                    (Point d'entrée)                              │
+│  • Charge les variables d'environnement (.env)                   │
+│  • Établit la connexion à MongoDB                                │
+│  • Configure les middlewares (express.json)                      │
+│  • Monte les routes                                              │
+└────────────────────────────┬────────────────────────────────────┘
+                             │
+                             ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                          ROUTES                                  │
+│           (articleRoutes.js / userRoutes.js)                     │
+│                                                                   │
+│  GET  /api/users      ──────► getAllUsers()                     │
+│  POST /api/users      ──────► createUser()                      │
+│  GET  /api/articles   ──────► getAllArticles()                  │
+│  POST /api/articles   ──────► createArticle()                   │
+└────────────────────────────┬────────────────────────────────────┘
+                             │
+                             ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                       CONTROLLERS                                │
+│        (articleController.js / userController.js)                │
+│                   (Logique métier)                               │
+│                                                                   │
+│  • Reçoit la requête (req) et la réponse (res)                  │
+│  • Utilise async/await pour les opérations asynchrones          │
+│  • Appelle les méthodes du Modèle                               │
+│  • Gère les erreurs avec try...catch                            │
+│  • Envoie la réponse au client                                  │
+└────────────────────────────┬────────────────────────────────────┘
+                             │
+                             ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                         MODELS                                   │
+│              (Article.js / User.js)                              │
+│                  (Schéma + Modèle Mongoose)                      │
+│                                                                   │
+│  SCHÉMA : Définit la structure des données                       │
+│  • Champs (title, email, password...)                           │
+│  • Types (String, Number, Date...)                              │
+│  • Validations (required, unique, minlength...)                 │
+│                                                                   │
+│  MODÈLE : Interface pour interagir avec MongoDB                 │
+│  • Model.find()      → Lire tous les documents                  │
+│  • Model.findById()  → Lire un document par ID                  │
+│  • Model.save()      → Créer/Modifier un document               │
+│  • Model.delete()    → Supprimer un document                    │
+└────────────────────────────┬────────────────────────────────────┘
+                             │
+                             ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                      MONGOOSE (ODM)                              │
+│              Object Data Modeling Library                        │
+│                                                                   │
+│  • Traduit les objets JavaScript en documents MongoDB           │
+│  • Valide les données selon le schéma                           │
+│  • Gère les connexions et les requêtes                          │
+└────────────────────────────┬────────────────────────────────────┘
+                             │
+                             ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                    MongoDB Atlas (Cloud)                         │
+│                      Base de Données                             │
+│                                                                   │
+│  Database: blogDB                                                │
+│  ├── Collection: users                                           │
+│  │   ├── Document 1: { _id, username, email, password... }     │
+│  │   ├── Document 2: { _id, username, email, password... }     │
+│  │   └── Document 3: ...                                        │
+│  │                                                               │
+│  └── Collection: articles                                        │
+│      ├── Document 1: { _id, title, content, author... }        │
+│      ├── Document 2: { _id, title, content, author... }        │
+│      └── Document 3: ...                                        │
+└─────────────────────────────────────────────────────────────────┘
+
 ---
 
 ## 🧩 Partie 1 – Concepts Techniques
@@ -255,7 +342,7 @@ author: "Anonyme" (valeur par défaut)
 
 createdAt: Date actuelle (généré automatiquement)
 
-![Résultat](images/Capture 1.png)
+![Résultat](images/Capture%201.png)
 
 Envoyez un JSON :
 ```js
@@ -264,7 +351,7 @@ Envoyez un JSON :
   "content": "Une délicieuse tarte aux pommes avec une pâte feuilletée croustillante."
 }
 ```
-![Résultat](images/Capture 2.png)
+![Résultat](images/Capture%202.png)
 
 📖 Test - Récupérer Tous les Articles (GET)
 
@@ -284,10 +371,14 @@ Cliquez sur "Send"
 
 Vous devriez recevoir un tableau JSON avec tous vos articles :
 
-![Résultat](images/Capture 4.png)
+![Résultat](images/Capture%204.png)
 
 🧾 Vérifiez vos données dans MongoDB Atlas ou votre base locale.
-![Résultat](images/Capture 3.png)
+![Résultat](images/Capture%203.png)
+
+🧪 Test - Erreur : Titre Manquant
+
+![Résultat](images/Capture%2010.png.png)
 
 --- 
 
@@ -428,7 +519,7 @@ module.exports = {
 
 Résultat attendu :
 
-![Résultat](images/Capture 5.png)
+![Résultat](images/Capture%205.png)
 
 ✅ Statut : 201 Created
 Sauvegardez cette requête dans le dossier "Users" avec le nom : "Create User - Success"
@@ -442,7 +533,7 @@ Sauvegardez cette requête dans le dossier "Users" avec le nom : "Create User - 
 
 Résultat attendu :
 
-![Résultat](images/Capture 6.png)
+![Résultat](images/Capture%206.png)
 
 ✅ Statut : 200 OK
 Sauvegardez avec le nom : "Get All Users"
@@ -457,20 +548,25 @@ json{
 }
 Résultat attendu :
 
-![Résultat](images/Capture 7.png)
+![Résultat](images/Capture%207.png)
 
 ❌ Statut : 400 Bad Request
 Sauvegardez avec le nom : "Create User - Duplicate Username"
 
 🧪 Test - Erreur : Email Invalide
 
-![Résultat](images/Capture 8.png)
+![Résultat](images/Capture%208.png)
 
 ❌ Statut : 400 Bad Request
 
 🧪 Test  - Erreur : Champ Manquant
 
-![Résultat](images/Capture 9.png)
+![Résultat](images/Capture%209.png)
 
 ❌ Statut : 400 Bad Request
 (password manquant)
+
+✅ Vérifiez vos données dans MongoDB Atlas ou votre base locale.
+
+![Résultat](images/Capture%2011.png)
+
