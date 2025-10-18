@@ -16,6 +16,3 @@ Thumbs.db
 # Build directories
 dist/
 build/
-
-# Optional: MongoDB local data
-data/
