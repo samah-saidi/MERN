@@ -379,7 +379,7 @@ Vous devriez recevoir un tableau JSON avec tous vos articles :
 
 🧪 Test - Erreur : Titre Manquant
 
-![Résultat](images/Capture%2010.png.png)
+![Résultat](images/Capture%2010.png)
 
 --- 
 
@@ -391,7 +391,7 @@ Vous devriez recevoir un tableau JSON avec tous vos articles :
 
 **- email (String, requis, unique)** 
 
-**- password (String, requis) --**
+**- password (String, requis)**
 
 ```js
 const mongoose = require('mongoose');
