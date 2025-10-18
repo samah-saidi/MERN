@@ -41,7 +41,7 @@ mon-api-blog-3/
 ```
 
 ## Architecture MVC de l'Application
-
+```bsh
 ┌─────────────────────────────────────────────────────────────────┐
 │                         CLIENT (Postman)                         │
 │                    Envoie des requêtes HTTP                      │
@@ -125,7 +125,7 @@ mon-api-blog-3/
 │      ├── Document 2: { _id, title, content, author... }        │
 │      └── Document 3: ...                                        │
 └─────────────────────────────────────────────────────────────────┘
-
+```
 ---
 
 ## 🧩 Partie 1 – Concepts Techniques
@@ -570,3 +570,41 @@ Sauvegardez avec le nom : "Create User - Duplicate Username"
 
 ![Résultat](images/Capture%2011.png)
 
+--- 
+
+** En résumé ** 
+
+✅ API REST fonctionnelle avec MongoDB et Mongoose
+✅ Maîtrise de la programmation asynchrone (async/await)
+✅ Architecture MVC propre et maintenable
+✅ Validation complète des données
+✅ Gestion robuste des erreurs
+✅ 16/16 tests réussis (100%)
+✅ Base solide pour les développements futurs
+
+```markdown
+CLIENT
+  ↓ (HTTP Request)
+SERVER.JS
+  ↓ (Routing)
+ROUTES
+  ↓ (Function Call)
+CONTROLLERS
+  ↓ (Database Query)
+MODELS
+  ↓ (Data Validation)
+MONGOOSE
+  ↓ (BSON Translation)
+MONGODB
+  ↑ (Response)
+CLIENT
+``` 
+
+** Prochaines étapes **
+
+🎯 Compléter le CRUD (Update, Delete)
+🎯 Implémenter l'authentification JWT
+🎯 Hasher les mots de passe avec bcrypt
+🎯 Ajouter des relations entre modèles
+🎯 Mettre en place la pagination
+🎯 Déployer l'application en production
