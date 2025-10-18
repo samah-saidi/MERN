@@ -99,7 +99,7 @@ npm install mongoose dotenv
 
 #### 🔐 Fichier .env
 ```env
-MONGODB_URI=mongodb+srv://user:strongPassword123@cluster0.xxxxx.mongodb.net/blogDB?retryWrites=true&w=majority
+MONGODB_URI=mongodb+srv://user:password@cluster.mongodb.net/dbname
 
 <!-- pour MongoDB -->
 # MONGODB_URI=mongodb://localhost:27017/mon-api-blog-3
@@ -468,10 +468,9 @@ Sauvegardez avec le nom : "Create User - Duplicate Username"
 
 ❌ Statut : 400 Bad Request
 
-Test #8 - Erreur : Champ Manquant
-json{
-  "username": "test_user",
-  "email": "test@example.com"
-}
+🧪 Test  - Erreur : Champ Manquant
+
+![Résultat](images/Capture 9.png)
+
 ❌ Statut : 400 Bad Request
 (password manquant)
