@@ -1,6 +1,6 @@
 const Course = require('../models/Course');
 
-// create new course
+// Create New course
 const createCourse = async (req, res) => {
     try {
         const course = await Course.create(req.body);

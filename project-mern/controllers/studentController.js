@@ -1,6 +1,6 @@
 const Student = require('../models/Student');
 
-
+// Create New Student
 const createStudent = async (req, res) => {
     try {
         const newStudent = new Student({
@@ -54,7 +54,7 @@ const createStudent = async (req, res) => {
     }   
 };
 
-
+// Get All Students
 const getAllStudents = async (req, res) => {
     try {
         const students = await Student.find().select('-password');
@@ -72,7 +72,7 @@ const getAllStudents = async (req, res) => {
     }
 };
 
-
+// Get Student by ID
 const getStudentById = async (req, res) => {
     try {   
         const student = await Student.findById(req.params.id).select('-password');
@@ -104,6 +104,7 @@ const getStudentById = async (req, res) => {
     }
 };
 
+// Update Student by ID
 const updateStudentById = async (req, res) => {
     try {
         const updatedStudent = await Student.findByIdAndUpdate(
@@ -170,6 +171,7 @@ const updateStudentById = async (req, res) => {
     }
 };
 
+// Delete Student by ID
 const deleteStudentById = async (req, res) => {
     try {       
         const deletedStudent = await Student.findByIdAndDelete(req.params.id);
