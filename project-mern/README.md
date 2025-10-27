@@ -97,6 +97,7 @@ project-mern/
 │   ├── studentRoutes.js
 │   └── courseRoutes.js
 │
+├── images/
 ├── .env
 ├── .gitignore
 ├── package.json
@@ -799,6 +800,8 @@ router.get('/students/:id', getStudentById);
 
 router.put('/students/:id', updateStudentById);
 
+router.delete('/students/:id', deleteStudentById);
+
 module.exports = router;
 ```
 
@@ -916,3 +919,100 @@ Vous devriez voir la documentation des endpoints.
 ---
 
 ### 10.🧪 Tests avec Postman
+
+*1. CREATE STUDENT - POST /students*
+
+**✅ Test : Créer un étudiant**
+
+Method: POST
+
+URL: http://localhost:3000/api/students
+
+Headers:  Content-Type: application/json
+
+Body (raw JSON):
+```json
+    {
+        "username": "johndoe",
+        "studentId": "STU2024001",
+        "age": 20,
+        "email": "john.doe@university.edu",
+        "password": "password123"
+    }
+```
+**Expected Response: 201 Created**
+
+![resultat](images/creation_student.png)
+
+**✅ Test : Créer un étudiant sans studentId (optionnel)**
+
+![resultat](images/creation_student_sansID.png)
+
+**❌ Test : Créer un étudiant avec username trop court**
+
+![resultat](images/short_name.png)
+
+**❌ Test : Créer un étudiant avec email invalide**
+
+![resultat](images/email_invalid.png)
+
+**❌ Test : Créer un étudiant avec champs manquants**
+
+![resultat](images/creation_student_sansID.png)
+
+**❌ Test : Créer un étudiant avec username dupliqué**
+![resultat](images/username_exist.png)
+
+*2. GET ALL STUDENTS - GET /students*
+
+**✅ Test : Récupérer tous les étudiants**
+
+Method: GET
+
+URL: http://localhost:3000/api/students
+
+Expected Response: 200 OK
+
+![resultat](images/getallstudents.png)
+
+*3. GET STUDENT BY ID - GET /students/:id*
+
+**✅ Test 3.1: Récupérer un étudiant par ID valide**
+
+**Method: GET**
+
+**URL: http://localhost:3000/api/students/{STUDENT_ID}**
+
+Remplacez {STUDENT_ID} par un ID réel d'un étudiant existant.
+
+Expected Response: 200 OK
+
+![resultat](images/getById.png)
+
+**❌ Test : Récupérer un étudiant avec ID invalide**
+
+**URL:** http://localhost:3000/api/students/invalidid123
+
+Expected Response: 404 Not Found
+![resultat](images/id_notfound.png)
+
+
+## 4. UPDATE STUDENT - PUT `/students/:id`
+
+### ✅ Test : Mettre à jour complètement un étudiant
+
+**Method:** `PUT`  
+**URL:** `http://localhost:3000/api/students/{STUDENT_ID}`  
+**Headers:**
+```
+Content-Type: application/json
+
+![resultat](images/put.png)
+
+**✅ Test DELETE: Supprimer un étudiant**
+Method: DELETE
+URL: http://localhost:3000/api/students/{STUDENT_ID}
+Expected Response: 200 OK
+
+![resultat](images/creation_student_sansID.png)
+![resultat](images/creation_student_sansID.png)
