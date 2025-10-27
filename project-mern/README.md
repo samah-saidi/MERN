@@ -15,7 +15,7 @@ API REST complète pour la gestion des étudiants et des cours avec Node.js, Exp
 10. Tests avec Postman
 11. Scripts NPM
 
-
+---
 ### 1.🔧 Prérequis
 
 Avant de commencer, assurez-vous d'avoir installé :
@@ -34,7 +34,7 @@ Vérifier les installations :
     npm --version
     mongo --version
 ```
-
+---
 ### 2.📦 Installation
 
 **Étape 1 : Créer le dossier du projet**
@@ -103,7 +103,7 @@ project-mern/
 ├── README.md
 └── server.js
 ```
-
+---
 ### 4.⚙️ Configuration
 
 **Étape 6 : Configurer les variables d'environnement** 
@@ -119,7 +119,7 @@ Créez le fichier .env à la racine du projet :
 
     # Optional: MongoDB Atlas (si vous utilisez le cloud)
     # MONGO_URI=mongodb+srv: ......
-    
+
 ```
 
 **Étape 7 : Configurer .gitignore**
@@ -164,7 +164,7 @@ const connectDB = async () => {
 
 module.exports = connectDB;
 ``` 
-
+---
 ### 5.🗂️ Création des Modèles
 
 **Étape 9 : Créer le modèle Student**
@@ -310,6 +310,8 @@ const courseSchema = new mongoose.Schema({
 
 module.exports = mongoose.model('Course', courseSchema);
 ```
+---
+
 ### 6. 🎮 Création des Contrôleurs
 
 **Étape 11 : Créer le contrôleur Student**
@@ -318,7 +320,6 @@ Créez controllers/studentController.js :
 
 ```js
 const Student = require('../models/Student');
-
 
 const createStudent = async (req, res) => {
     try {
@@ -372,8 +373,6 @@ const createStudent = async (req, res) => {
         });
     }   
 };
-
-
 const getAllStudents = async (req, res) => {
     try {
         const students = await Student.find().select('-password');
@@ -390,8 +389,6 @@ const getAllStudents = async (req, res) => {
         });
     }
 };
-
-
 const getStudentById = async (req, res) => {
     try {   
         const student = await Student.findById(req.params.id).select('-password');
@@ -781,6 +778,7 @@ module.exports = {
     deleteCourseById
 };
 ```
+---
 
 ### 7.🛣️ Création des Routes
 
@@ -827,6 +825,7 @@ router.delete('/courses/:id', deleteCourseById);
 
 module.exports = router;
 ```
+---
 
 ### 8.🚀 Configuration du Serveur
 
@@ -878,6 +877,7 @@ Ajoutez les scripts suivants dans package.json :
   }
 
 ```
+---
 
 ### 9. 🎯 Lancement du Projet
 
@@ -912,5 +912,7 @@ Vous devriez voir :
 Ouvrez votre navigateur et allez à : http://localhost:3000
 
 Vous devriez voir la documentation des endpoints.
+
+---
 
 ### 10.🧪 Tests avec Postman
