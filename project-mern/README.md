@@ -14,6 +14,7 @@ API REST complète pour la gestion des étudiants et des cours avec Node.js, Exp
 9. Lancement du Projet
 10. Tests avec Postman
 11. Scripts NPM
+12. Ressources Additionnelles
 
 ---
 ### 1.🔧 Prérequis
@@ -920,6 +921,8 @@ Vous devriez voir la documentation des endpoints.
 
 ### 10.🧪 Tests avec Postman
 
+#### Test Student
+
 *1. CREATE STUDENT - POST /students*
 
 **✅ Test : Créer un étudiant**
@@ -1006,13 +1009,120 @@ Expected Response: 404 Not Found
 **Headers:**
 ```
 Content-Type: application/json
-
+```
 ![resultat](images/put.png)
 
 **✅ Test DELETE: Supprimer un étudiant**
-Method: DELETE
-URL: http://localhost:3000/api/students/{STUDENT_ID}
+**Method: DELETE**
+**URL: http://localhost:3000/api/students/{STUDENT_ID}**
+
 Expected Response: 200 OK
 
-![resultat](images/creation_student_sansID.png)
-![resultat](images/creation_student_sansID.png)
+![resultat](images/deletestudent.png)
+
+
+#### Test Course
+*1. CREATE COURSE - POST /courses*
+
+**✅ Test 1.1: Créer un cours valide**
+
+**Method: POST**
+
+**URL: http://localhost:3000/api/courses**
+
+**Headers: Content-Type: application/json**
+
+Expected Response: 201 Created
+![resultat](images/post_course.png)
+
+*2. GET ALL COURSES - GET /courses*
+
+**✅ Test : Récupérer tous les cours**
+
+**Method: GET**
+
+**URL: http://localhost:3000/api/courses**
+
+Expected Response: 200 OK
+
+![resultat](images/getall_courses.png)
+
+*GET COURSE BY ID - GET /courses/:id*
+
+**✅ Test : Récupérer un cours par ID valide**
+
+**Method: GET**
+
+**URL: http://localhost:3000/api/courses/{COURSE_ID}**
+
+Remplacez {COURSE_ID} par un ID réel d'un cours existant.
+
+Expected Response: 200 OK
+
+![resultat](images/GetByIDCourse.png)
+
+*4. UPDATE COURSE (PUT) - PUT `/courses/:id`*
+
+**✅ Test : Mettre à jour complètement un cours**
+
+**Method:** `PUT`  
+
+**URL:** `http://localhost:3000/api/courses/{COURSE_ID}`  
+
+**Headers:** Content-Type: application/json
+
+![resultat](images/put_course.png)
+
+
+*5. PARTIAL UPDATE (PATCH) - PATCH `/courses/:id`*
+
+**✅ Test 5.1: Mettre à jour partiellement un cours**
+
+**Method:** `PATCH`  
+
+**URL:** `http://localhost:3000/api/courses/{COURSE_ID}`  
+
+**Headers:** Content-Type: application/json
+
+![resultat](images/patch_course.png)
+
+*6. DELETE COURSE - DELETE /courses/:id*
+
+**✅ Test 6.1: Supprimer un cours existant**
+
+**Method: DELETE**
+
+**URL: http://localhost:3000/api/courses/{COURSE_ID}**
+
+Expected Response: 200 OK
+
+![resultat](images/patch_course.png)
+
+---
+## 11.📝 Scripts NPM
+```bash
+    # Lancer en mode développement
+    npm run dev
+
+    # Lancer en mode production
+    npm start
+
+    # Installer les dépendances
+    npm install
+
+    # Mettre à jour les packages
+    npm update
+```
+---
+### 12.📚 Ressources Additionnelles
+
+Express Documentation
+
+Mongoose Documentation
+
+MongoDB Documentation
+
+Node.js Documentation
+
+Postman Learning Center
+
