@@ -118,7 +118,8 @@ Créez le fichier .env à la racine du projet :
     MONGODB_URI=mongodb://localhost:27017/merncrud
 
     # Optional: MongoDB Atlas (si vous utilisez le cloud)
-    # MONGO_URI=mongodb+srv: ....
+    # MONGO_URI=mongodb+srv: ......
+    
 ```
 
 **Étape 7 : Configurer .gitignore**
