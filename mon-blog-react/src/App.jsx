@@ -251,6 +251,8 @@
 
 // export default App;
 
+// // exercice 2 ProductCard
+
 // import Header from './components/Header';
 // import Footer from './components/Footer';
 // import ProductCard from './components/ProductCard';
@@ -325,6 +327,8 @@
 // }
 
 // export default App;
+
+//exercice 3 commentaires
 
 import Header from './components/Header';
 import Footer from './components/Footer';
