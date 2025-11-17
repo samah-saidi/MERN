@@ -193,6 +193,9 @@ Maintenant, le projet le plus complet qui combine TOUS les concepts :
 ![img](src/assets/gestion_projet.png)
 
 
+![img](src/assets/20251117-1824-37.9004249.gif)
+
+
 
 [👉 Voir la vidéo résultat](src/assets/Project_manager.mp4)
 
