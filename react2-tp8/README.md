@@ -5,6 +5,40 @@
 Cette séance vise à maîtriser les trois hooks fondamentaux de React à
 travers des explications théoriques puis plusieurs projets pratiques.
 
+📁 Structure du projet
+```bash
+REACT2_TP8/
+│
+├── node_modules/
+│
+├── public/
+│   └── index.html
+│
+├── src/
+│   ├── assets/                # Images utilisées dans le README / projets
+│   │
+│   ├── components/
+│   │   └── ShoppingListApp.jsx
+│   │
+│   ├── reducers/
+│   │   └── todoReducer.js
+│   │
+│   ├── App.css
+│   ├── App.jsx
+│   ├── BlogApp.jsx
+│   ├── index.css
+│   ├── main.jsx
+│   └── ProjectManager.jsx     # Projet final complet
+│
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── package.json
+├── package-lock.json
+├── README.md
+└── vite.config.js
+```
+
 ------------------------------------------------------------------------
 
 # 🧠 Partie 1 : Concepts Essentiels
@@ -133,6 +167,8 @@ Hooks : - useState (multi-états) - useEffect (sauvegarde locale)
 
 ## 🧱 5. Projet Final -- Gestionnaire de Projets
 
+Maintenant, le projet le plus complet qui combine TOUS les concepts :
+
 *Fonctionnalités obligatoires : *
 - useReducer : gestion des projets 
 - useEffect : timers + persistance 
@@ -141,12 +177,81 @@ Hooks : - useState (multi-états) - useEffect (sauvegarde locale)
 - Trier par deadline 
 - Timer Pomodoro par projet - Statistiques
 
+![img](src/assets/ajout_projet.png)
 
 ![img](src/assets/Final_project.png)
 
 ![img](src/assets/filter_research.png)
+![img](src/assets/filter_recherche.png)
+
+![img](src/assets/filter_afaire.png)
+
+![img](src/assets/filter_terminee.png)
+
+![img](src/assets/filter_statut.png)
+
+![img](src/assets/gestion_projet.png)
+
+
 
 [👉 Voir la vidéo résultat](src/assets/Project_manager.mp4)
+
+------------------------------------------------
+
+## 📚 RÉCAPITULATIF FINAL
+✅ Ce que vous avez maintenant :
+### Projet 2 - Liste de Courses avec Timer
+
+✅ useState multiple (liste, inputs, timer)
+✅ useEffect avec cleanup (timer)
+✅ Persistance localStorage
+✅ Timer Pomodoro fonctionnel
+
+### Projet 1 - Gestionnaire de Tâches
+
+✅ useReducer pour la logique centralisée
+✅ Filtrage (toutes/actives/complétées)
+✅ Persistance avec chargement/sauvegarde
+✅ Immutabilité stricte
+
+### Projet 3 - Blog Interactif
+
+✅ Recherche multi-critères
+✅ Tri dynamique (date/likes)
+✅ Filtre par auteur
+✅ CRUD complet (Create, Read, Update, Delete)
+✅ Initialisation lazy useState
+
+### 🎯 PROJET FINAL - Gestionnaire de Projets
+Combine TOUS les hooks :
+
+✅ useReducer : Gestion d'état complexe (projets, filtres, tri)
+✅ useEffect :
+
+Persistance localStorage
+Timers multiples avec cleanup
+Chargement initial
+
+
+✅ useState : Formulaires, recherche, affichage conditionnel
+✅ Statistiques visuelles en temps réel
+✅ Timer Pomodoro par projet
+✅ Filtrage et tri avancés
+✅ Interface moderne en grid layout
+
+
+### 🎓 Concepts Maîtrisés
+
+| Concept        | Projet 2 | Projet 1 | Projet 3 | Final |
+|----------------|----------|----------|----------|--------|
+| useState       | ✅        | ✅        | ✅        | ✅      |
+| useEffect      | ✅        | ✅        | ✅        | ✅      |
+| useReducer     | ❌        | ✅        | ✅        | ❌      |
+| Immutabilité   | ✅        | ✅        | ✅        | ✅      |
+| localStorage   | ✅        | ✅        | ✅        | ✅      |
+| Timer/Cleanup  | ✅        | ❌        | ❌        | ✅      |
+| Filtrage       | ✅        | ✅        | ✅        | ✅      |
+
 ------------------------------------------------------------------------
 
 ## 📚 Ressources
