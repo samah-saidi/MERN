@@ -135,33 +135,49 @@ localStorage
 
 ## 📝 3. Projet 1 -- Gestionnaire de Tâches avec useReducer (Todo List)
 
-Fonctionnalités : - Ajouter / compléter / supprimer une tâche - Filtrer
-: all / active / completed - Sauvegarde dans localStorage
+Fonctionnalités : 
+- Ajouter / compléter / supprimer une tâche 
+  
+- Filtrer: all / active / completed 
+  
+- Sauvegarde dans localStorage
 
 Architecture : - useReducer pour le reducer - useEffect pour
 persistance - useState pour les inputs
 
 **Resultat**
+
 ![img](src/assets/todo_list.png)
 
 **Toutes Liste**
+
 ![img](src/assets/toutes_list.png)
 
 **Liste Actives**
+
 ![img](src/assets/list_actives.png)
 
 **Liste Completees**
+
 ![img](src/assets/list_completees.png)
 
 ------------------------------------------------------------------------
 
 ## ✍️ 4. Projet 3 -- Blog Interactif avec Tri & Recherche
 
-Fonctionnalités : - Ajouter un article - Rechercher par texte - Filtrer
-par auteur - Trier : likes / date - Like / supprimer - Persistance
-automatique
+Fonctionnalités : 
 
-Hooks : - useState (multi-états) - useEffect (sauvegarde locale)
+-  Ajouter un article 
+-  Rechercher par texte 
+-  Filtrer par auteur 
+-  Trier : likes / date 
+-  Like / supprimer
+-  Persistance automatique
+
+Hooks : 
+
+-  useState (multi-états) 
+-  useEffect (sauvegarde locale)
 
 **Resultat**
 ![img](src/assets/BlogApp_projet3.png)
@@ -181,7 +197,7 @@ Hooks : - useState (multi-états) - useEffect (sauvegarde locale)
 
 Maintenant, le projet le plus complet qui combine TOUS les concepts :
 
-*Fonctionnalités obligatoires : *
+*Fonctionnalités obligatoires :*
 - useReducer : gestion des projets 
 - useEffect : timers + persistance 
 - useState : formulaires, filtres,recherche 
