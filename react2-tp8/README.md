@@ -217,6 +217,7 @@ Maintenant, le projet le plus complet qui combine TOUS les concepts :
 
 
 [👉 Voir la vidéo résultat](src/assets/Project_manager.mp4)
+**Supprimer un projet cela afficher dans la vidéo**
 
 ------------------------------------------------
 
@@ -225,29 +226,40 @@ Maintenant, le projet le plus complet qui combine TOUS les concepts :
 ### Projet 2 - Liste de Courses avec Timer
 
 ✅ useState multiple (liste, inputs, timer)
+
 ✅ useEffect avec cleanup (timer)
+
 ✅ Persistance localStorage
+
 ✅ Timer Pomodoro fonctionnel
 
 ### Projet 1 - Gestionnaire de Tâches
 
 ✅ useReducer pour la logique centralisée
+
 ✅ Filtrage (toutes/actives/complétées)
+
 ✅ Persistance avec chargement/sauvegarde
+
 ✅ Immutabilité stricte
 
 ### Projet 3 - Blog Interactif
 
 ✅ Recherche multi-critères
+
 ✅ Tri dynamique (date/likes)
+
 ✅ Filtre par auteur
+
 ✅ CRUD complet (Create, Read, Update, Delete)
+
 ✅ Initialisation lazy useState
 
 ### 🎯 PROJET FINAL - Gestionnaire de Projets
 Combine TOUS les hooks :
 
 ✅ useReducer : Gestion d'état complexe (projets, filtres, tri)
+
 ✅ useEffect :
 
 Persistance localStorage
@@ -256,9 +268,13 @@ Chargement initial
 
 
 ✅ useState : Formulaires, recherche, affichage conditionnel
+
 ✅ Statistiques visuelles en temps réel
+
 ✅ Timer Pomodoro par projet
+
 ✅ Filtrage et tri avancés
+
 ✅ Interface moderne en grid layout
 
 
