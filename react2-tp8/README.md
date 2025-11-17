@@ -111,12 +111,16 @@ localStorage
 - useState (items et timer) 
 - useEffect (stockage + nettoyage des timers)
 
+**Resultat**
 ![img](src/assets/liste_courses.png)
 
+**Toutes Liste** 
 ![img](src/assets/liste_courses2.png)
 
+**Pause**
 ![img](src/assets/pause.png)
 
+**Reset**
 ![img](src/assets/reset.png)
 
 *✅ Points clés du Projet 2 :*
@@ -137,12 +141,16 @@ Fonctionnalités : - Ajouter / compléter / supprimer une tâche - Filtrer
 Architecture : - useReducer pour le reducer - useEffect pour
 persistance - useState pour les inputs
 
+**Resultat**
 ![img](src/assets/todo_list.png)
 
+**Toutes Liste**
 ![img](src/assets/toutes_list.png)
 
+**Liste Actives**
 ![img](src/assets/list_actives.png)
 
+**Liste Completees**
 ![img](src/assets/list_completees.png)
 
 ------------------------------------------------------------------------
@@ -155,12 +163,16 @@ automatique
 
 Hooks : - useState (multi-états) - useEffect (sauvegarde locale)
 
+**Resultat**
 ![img](src/assets/BlogApp_projet3.png)
 
+**Filter par recherche**
 ![img](src/assets/filtered_research.png)
 
+**Filter par Auteur**
 ![img](src/assets/filtered_auteur.png)
 
+**Ajout d'un course**
 ![img](src/assets/ajout_course.png)
 
 ------------------------------------------------------------------------
@@ -177,22 +189,29 @@ Maintenant, le projet le plus complet qui combine TOUS les concepts :
 - Trier par deadline 
 - Timer Pomodoro par projet - Statistiques
 
+**Ajout Projet**
 ![img](src/assets/ajout_projet.png)
 
+**Resultat**
 ![img](src/assets/Final_project.png)
 
+**Filter par recherche**
 ![img](src/assets/filter_research.png)
 ![img](src/assets/filter_recherche.png)
 
+**Filter par les projets à faire**
 ![img](src/assets/filter_afaire.png)
 
+**Filter par les projets terminées**
 ![img](src/assets/filter_terminee.png)
 
+**Filter par statut**
 ![img](src/assets/filter_statut.png)
 
+**Affichage de gestion du projet**
 ![img](src/assets/gestion_projet.png)
 
-
+**Capture Vidéo du resultat**
 ![img](src/assets/20251117-1824-37.9004249.gif)
 
 
@@ -263,3 +282,8 @@ Chargement initial
 -   useState : https://react.dev/reference/react/useState
 -   useEffect : https://react.dev/reference/react/useEffect
 -   useReducer : https://react.dev/reference/react/useReducer
+
+-----------------
+
+## Auteur 
+**Samah SAIDI**
