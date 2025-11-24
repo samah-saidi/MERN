@@ -248,3 +248,34 @@ Ce projet t’a permis de manipuler les trois pour bien comprendre :
 
 
 -----------
+
+## 📚 9. Ressources
+### 🚀 Documentation officielle
+
+*React – useContext*
+https://react.dev/reference/react/useContext
+
+*Redux Toolkit*
+https://redux-toolkit.js.org/
+
+*Zustand
+*https://zustand-demo.pmnd.rs/
+
+🌐 API utilisée dans le projet
+
+**Rick & Morty API**
+https://rickandmortyapi.com/api/character
+
+#### 📄 Support du cours
+
+Cours MERN – Semaine 8 (PDF fourni)
+
+------
+
+## ✒️ 10. Auteur
+
+**Samah SAIDI**
+
+---
+
+*Projet réalisé dans le cadre du cours MERN – Gestion d’État Globale (Semaine 8).*
