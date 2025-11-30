@@ -6,6 +6,7 @@ const { notFound, errorHandler } = require('./middleware/errorMiddleware');
 
 const userRoutes = require('./routes/userRoutes');
 const courseRoutes = require('./routes/courseRoutes');
+const authRoutes = require('./routes/authRoutes');
 
 connectDB();
 
@@ -16,6 +17,8 @@ app.use(morgan('dev'));
 // Routes
 app.use('/api/users', userRoutes);
 app.use('/api/courses', courseRoutes);
+
+app.use('/api/auth', authRoutes);
 
 // Error Handling Middleware
 app.use(notFound);
