@@ -1314,7 +1314,7 @@ Vous pouvez désormais construire des APIs complètes :
 * Routes imbriquées (nested) pour refléter les relations
 * Codes HTTP appropriés pour chaque situation
 * Gestion d'erreurs robuste et messages clairs
-* 
+  
 ---
 
 ## 👩‍💻 Étudiante
