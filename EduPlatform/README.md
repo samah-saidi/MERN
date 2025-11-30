@@ -14,6 +14,25 @@ Compétences démontrées
 * *Conception d'une architecture RESTful logique*
 * *Système d'authentification JWT complet*
 
+---
+## 🛠️ Technologies Utilisées
+
+### Backend
+- 🟢 **Node.js** - Runtime JavaScript côté serveur
+- ⚡ **Express.js** - Framework web minimaliste et flexible
+- 🍃 **MongoDB** - Base de données NoSQL orientée documents
+- 🔗 **Mongoose** - ODM (Object Data Modeling) pour MongoDB
+- 🔐 **bcryptjs** - Hashage sécurisé des mots de passe
+- 🎫 **jsonwebtoken (JWT)** - Authentification par tokens
+- 🌍 **dotenv** - Gestion des variables d'environnement
+
+
+### Outils de Développement
+- 📮 **Postman / Thunder Client** - Tests des APIs REST
+- 🔧 **Nodemon** - Rechargement automatique du serveur
+- 📦 **npm** - Gestionnaire de paquets Node.js
+- 🐙 **Git** - Contrôle de version
+
 ----
 ## 🗂️ Structure complète
 
@@ -41,6 +60,23 @@ EduPlatform/
     ├─ authMiddleware.js
     └─ errorMiddleware.js
 ```
+
+---
+## 🚀 Installation
+**Prérequis**
+* Node.js (v14 ou supérieur)
+* npm ou yarn
+* Postman (pour tester l'API)
+
+## ▶️ Lancer l'API
+```
+npm install
+node server.js
+```
+Messages attendus :
+
+>✅ MongoDB connected
+>✅ Server running on port 3000
 
 ---
 
@@ -481,7 +517,7 @@ const review = await Review.findById(reviewId)
 ![result](images/post_review.png)
 
 ---
-## 🔐 Authentification JWT - Guide Complet
+## 🔐 Authentification JWT 
 **Qu'est-ce qu'un JWT?**
 `JWT = JSON Web Token`
 
@@ -597,7 +633,7 @@ const review = await Review.findById(reviewId)
        ▼                                                ▼
 ```
 
---
+---
 
 #### Installation et Configuration
 **1. Installer les dépendances:**
@@ -654,6 +690,7 @@ const userSchema = new mongoose.Schema({
 });
 module.exports = mongoose.model('User', userSchema);
 ```
+----
 
 #### Routes d'Authentification
 ##### 📝 Route Register (Inscription)
@@ -719,6 +756,7 @@ POST /api/auth/register
          ▼
     ✅ 201 Created
 ```
+---
 
 ##### 🔑 Route Login (Connexion)
 
@@ -910,6 +948,7 @@ Fichier: .env (à la racine du projet backend)
 │ JWT_SECRET=your_super_secret_key_here      │
 └────────────────────────────────────────────┘
 ```
+----
 
 ### 🌐 Structure des Routes API
 
@@ -951,6 +990,7 @@ Fichier: .env (à la racine du projet backend)
 ⚪ Route publique (pas d'auth requise)
 🔒 Route protégée (JWT requis)
 ```
+------
 
 ##### 📊 Codes de Statut HTTP
 
@@ -1015,6 +1055,7 @@ res.status(404).json({ message: 'Cours non trouvé' });
 💥 Erreur serveur
 res.status(500).json({ message: error.message });
 ```
+----
 
 ##### 🔒 Sécurité - Bonnes Pratiques
 
@@ -1105,6 +1146,8 @@ res.status(500).json({ message: error.message });
 6. Faire confiance aux données du client
    sans validation
 ```
+
+--------
 
 ## 🧪 Tests avec Postman/Thunder Client
 
