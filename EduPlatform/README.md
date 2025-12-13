@@ -98,7 +98,7 @@ cd EduPlatform
 ### 2. Installation des dépendances Backend
 
 ```bash
-cd backend
+cd server
 npm install
 ```
 
@@ -156,7 +156,7 @@ Ou utilisez [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) (cloud gratuit)
 ### 2. Démarrer le Backend
 
 ```bash
-cd backend
+cd server
 npm start
 ```
 
@@ -185,7 +185,7 @@ http://localhost:5173
 
 ```
 EduPlatform/
-├── backend/
+├── server/
 │   ├── config/
 │   │   └── db.js                    # Configuration MongoDB
 │   ├── controllers/
@@ -447,6 +447,8 @@ console.log(localStorage.getItem('token'));
 4. **Docker Essentials** - Containerisation d'applications
 5. **GraphQL Basics** - Alternative à REST API
 
+
+https://soa333-3739.postman.co/workspace/My-Workspace~8d6438f5-c1d3-4ae1-89a0-a58eeda54b2a/request/41658174-bfaab36b-40ff-4b5f-80ed-d087bdf3ef61?action=share&creator=41658174&ctx=documentation
 ------
 
 ## 👨‍💻 Auteur

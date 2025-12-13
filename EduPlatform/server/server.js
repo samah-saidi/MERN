@@ -9,6 +9,8 @@ const userRoutes = require('./routes/userRoutes');
 const courseRoutes = require('./routes/courseRoutes');
 const authRoutes = require('./routes/authRoutes');
 
+const aiRoutes = require('./routes/aiRoutes');
+
 connectDB();
 
 const app = express();
@@ -23,6 +25,9 @@ app.use(morgan('dev'));
 app.use('/api/users', userRoutes);
 app.use('/api/courses', courseRoutes);
 app.use('/api/auth', authRoutes);
+
+app.use('/api/ai', aiRoutes);
+
 
 // Error Handling Middleware
 app.use(notFound);
