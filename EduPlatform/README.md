@@ -1,7 +1,15 @@
-# 🎓 EduPlatform - Plateforme de Gestion de Cours
+# 🎓 EduPlatform - Plateforme d'Apprentissage Intelligente
 ----
 
 Application complète de gestion de cours en ligne avec authentification JWT, développée avec la stack MERN (MongoDB, Express, React, Node.js).
+
+----
+
+## 🎬 Démonstration Finale
+
+![Aperçu Final](Resultat_Finale.gif)
+
+*Une vue complète de l'application en action.*
 
 ----
 
@@ -47,6 +55,102 @@ Application complète de gestion de cours en ligne avec authentification JWT, d�
 
 -----
 
+## 🤖 Intégration Gemini IA
+
+##### Cours Similaires
+
+![Démonstration Gemini IA](Gemini_IA.gif)
+
+#####  Analyse IA des Reviews
+
+![Démonstration Gemini IA](IA_Gemini.gif)
+
+*Aperçu : Fonctionnalités d'intelligence artificielle avec Gemini pour enrichir l'expérience utilisateur.*
+
+### ✨ Fonctionnalités IA Disponibles
+
+#### 📊 Analyse Intelligente des Avis
+- ✅ Analyse automatique du sentiment des reviews d'un cours
+- ✅ Calcul de la note moyenne et tendances
+- ✅ Identification des points forts et axes d'amélioration
+- ✅ Recommandations personnalisées pour les instructeurs
+- ✅ Résumé synthétique en une phrase
+
+#### 📝 Génération de Contenu
+- ✅ Création automatique de descriptions de cours attractives
+- ✅ Génération de biographies professionnelles personnalisées
+- ✅ Contenu optimisé et engageant basé sur les mots-clés
+
+#### 🎯 Recommandations de Cours
+- ✅ Suggestions de cours similaires basées sur le contenu
+- ✅ Analyse contextuelle pour des recommandations pertinentes
+- ✅ Explication détaillée de la pertinence de chaque suggestion
+
+#### 📈 Insights Plateforme (Admin)
+- ✅ Analyse globale de la santé de la plateforme
+- ✅ Identification des tendances et cours populaires
+- ✅ Recommandations stratégiques pour l'amélioration
+- ✅ Statistiques détaillées sur l'engagement
+
+### 🔧 Configuration Gemini
+
+Pour utiliser les fonctionnalités IA, ajoutez votre clé API Gemini dans le fichier `.env` :
+
+```env
+GEMINI_API_KEY=votre_clé_api_gemini_ici
+```
+
+**Obtenir une clé API :**
+1. Visitez [Google AI Studio](https://ai.google.dev/)
+2. Connectez-vous avec votre compte Google
+3. Créez un nouveau projet et générez une clé API
+4. Copiez la clé dans votre fichier `.env`
+
+-----
+## 🔮 Roadmap & Idées d'Amélioration
+
+### 🚀 Prochaines Fonctionnalités (v2.0)
+
+- [ ] **Dashboard Admin Intelligent** 📊
+    - Vue d'ensemble avec insights IA sur toute la plateforme.
+    - Analyse des tendances et de l'engagement global.
+
+- [ ] **Générateur de Bio IA** ✍️
+    - Assistant de rédaction automatique dans l'édition de profil.
+    - Optimisation du profil pour une meilleure visibilité.
+
+- [ ] **Suggestions Personnalisées** 🎯
+    - Moteur de recommandation de cours sur mesure.
+    - Basé sur l'historique et les préférences de l'utilisateur.
+
+- [ ] **Chatbot Assistant** 💬
+    - Interface conversationnelle pour l'aide immédiate.
+    - Réponses aux questions fréquentes sur les cours.
+
+- [ ] **Générateur de Quiz Automatique** 📝
+    - Création instantanée de quiz d'évaluation.
+    - Basé sur l'analyse IA de la description et du contenu du cours.
+
+-----
+
+### 📚 Documentation Complète
+
+Pour plus de détails sur l'utilisation des endpoints IA, consultez :
+- [Guide Complet Gemini IA](server/GEMINI_IA_GUIDE.md) - Documentation technique détaillée
+- [Guide Postman](server/POSTMAN_GUIDE.md) - Tests des endpoints avec Postman
+
+### 🚀 Endpoints IA Disponibles
+
+| Endpoint | Méthode | Description | Auth |
+|----------|---------|-------------|------|
+| `/api/ai/analyze-reviews/:courseId` | POST | Analyser les avis d'un cours | ✅ |
+| `/api/ai/generate-description` | POST | Générer une description de cours | ✅ |
+| `/api/ai/similar-courses/:courseId` | POST | Suggérer des cours similaires | ❌ |
+| `/api/ai/generate-bio` | POST | Générer une bio professionnelle | ✅ |
+| `/api/ai/platform-insights` | GET | Obtenir les insights plateforme | ✅ |
+
+-----
+
 ## 🛠 Technologies Utilisées
 
 ### Backend
@@ -59,6 +163,7 @@ Application complète de gestion de cours en ligne avec authentification JWT, d�
 - **CORS** - Gestion des requêtes cross-origin
 - **dotenv** - Gestion des variables d'environnement
 - **express-async-handler** - Gestion des erreurs async
+- **@google/generative-ai** - Intégration Gemini IA pour fonctionnalités intelligentes
 
 ### Frontend
 - **React 18** - Bibliothèque UI
@@ -120,12 +225,14 @@ Créez un fichier `.env` dans le dossier `backend` :
 PORT=3000
 MONGO_URI=mongodb://localhost:27017/eduplatform
 JWT_SECRET=votre_secret_jwt_super_securise_ici
+GEMINI_API_KEY=votre_clé_api_gemini_ici
 ```
 
 **Variables d'environnement:**
 - `PORT` : Port du serveur backend (par défaut 3000)
 - `MONGO_URI` : URI de connexion MongoDB
 - `JWT_SECRET` : Clé secrète pour signer les tokens JWT
+- `GEMINI_API_KEY` : Clé API Google Gemini pour les fonctionnalités IA
 
 ### Frontend
 
@@ -187,13 +294,15 @@ http://localhost:5173
 EduPlatform/
 ├── server/
 │   ├── config/
-│   │   └── db.js                    # Configuration MongoDB
+│   │   ├── db.js                    # Configuration MongoDB
+│   │   └── gemini.js                # Configuration Gemini IA
 │   ├── controllers/
 │   │   ├── authController.js        # Auth (login, register)
 │   │   ├── courseController.js      # Gestion des cours
 │   │   ├── profileController.js     # Gestion des profils
 │   │   ├── reviewController.js      # Gestion des avis
-│   │   └── userController.js        # Gestion des utilisateurs
+│   │   ├── userController.js        # Gestion des utilisateurs
+│   │   └── aiController.js          # Contrôleurs Gemini IA
 │   ├── middleware/
 │   │   ├── authMiddleware.js        # Middleware JWT (protect)
 │   │   └── errorMiddleware.js       # Gestion des erreurs
@@ -205,38 +314,51 @@ EduPlatform/
 │   ├── routes/
 │   │   ├── authRoutes.js            # Routes authentification
 │   │   ├── courseRoutes.js          # Routes cours
-│   │   └── userRoutes.js            # Routes utilisateurs
+│   │   ├── userRoutes.js            # Routes utilisateurs
+│   │   └── aiRoutes.js              # Routes Gemini IA
 │   ├── images/                      # Images/uploads
 │   ├── .env                         # Variables d'environnement
 │   ├── server.js                    # Point d'entrée backend
+│   ├── package.json
+│   ├── GEMINI_IA_GUIDE.md           # Guide complet Gemini IA
+│   ├── POSTMAN_GUIDE.md             # Guide tests Postman
+│   └── README_GEMINI_DOCS.md        # Documentation Gemini
+│
+├── client/
+│   ├── src/
+│   │   ├── api/
+│   │   │   └── axios.js                # Configuration Axios
+│   │   ├── components/
+│   │   │   ├── Navbar.jsx              # Barre de navigation
+│   │   │   └── ProtectedRoute.jsx      # Route protégée
+│   │   ├── context/
+│   │   │   └── AuthContext.jsx         # Contexte authentification
+│   │   ├── pages/
+│   │   │   ├── CourseAnalysis.jsx      # Analyse des cours
+│   │   │   ├── GenerateDescription.jsx # Génération description cours
+│   │   │   ├── Home.jsx                # Accueil
+│   │   │   ├── Login.jsx               # Connexion
+│   │   │   ├── Register.jsx            # Inscription
+│   │   │   ├── Courses.jsx             # Liste des cours
+│   │   │   ├── CourseDetails.jsx       # Détails cours + avis
+│   │   │   ├── Profile.jsx             # Profil utilisateur
+│   │   │   ├── ProfileEdit.jsx         # Édition profil
+│   │   │   ├── MyReviews.jsx           # Mes avis
+│   │   │   ├── Reviews.jsx             # Avis
+│   │   │   └── NotFound.jsx            # Page 404
+│   │   ├── assets/
+│   │   │   ├── Video-Project.gif       # Démo projet
+│   │   │   └── not_found.png           # Image 404
+│   │   ├── App.jsx                     # Composant principal
+│   │   ├── App.css                     # Styles (violet theme)
+│   │   ├── index.css                   # Styles globaux
+│   │   └── main.jsx                    # Point d'entrée
+│   ├── index.html
+│   ├── vite.config.js
 │   └── package.json
 │
-└── client/
-    ├── src/
-    │   ├── api/
-    │   │   └── axios.js             # Configuration Axios
-    │   ├── components/
-    │   │   ├── Navbar.jsx           # Barre de navigation
-    │   │   └── ProtectedRoute.jsx   # Route protégée
-    │   ├── context/
-    │   │   └── AuthContext.jsx      # Contexte authentification
-    │   ├── pages/
-    │   │   ├── Home.jsx             # Accueil
-    │   │   ├── Login.jsx            # Connexion
-    │   │   ├── Register.jsx         # Inscription
-    │   │   ├── Courses.jsx          # Liste des cours
-    │   │   ├── CourseDetails.jsx    # Détails cours + avis
-    │   │   ├── Profile.jsx          # Profil utilisateur
-    │   │   ├── ProfileEdit.jsx      # Édition profil
-    │   │   ├── MyReviews.jsx        # Mes avis
-    │   │   └── NotFound.jsx         # Page 404
-    │   ├── App.jsx                  # Composant principal
-    │   ├── App.css                  # Styles (violet theme)
-    │   ├── index.css                # Styles globaux
-    │   └── main.jsx                 # Point d'entrée
-    ├── index.html
-    ├── vite.config.js
-    └── package.json
+├── Gemini_IA.gif                    # Démo Gemini IA
+└── README.md                        # Documentation principale
 ```
 
 -----
@@ -278,6 +400,15 @@ EduPlatform/
 |---------|-------|-------------|------|
 | GET | `/courses/:courseId/reviews` | Avis d'un cours | ❌ |
 | POST | `/courses/:courseId/reviews` | Ajouter un avis | ✅ |
+
+### 🤖 Gemini IA
+| Méthode | Route | Description | Auth |
+|---------|-------|-------------|------|
+| POST | `/ai/analyze-reviews/:courseId` | Analyser les avis d'un cours | ✅ |
+| POST | `/ai/generate-description` | Générer une description de cours | ✅ |
+| POST | `/ai/similar-courses/:courseId` | Suggérer des cours similaires | ❌ |
+| POST | `/ai/generate-bio` | Générer une bio professionnelle | ✅ |
+| GET | `/ai/platform-insights` | Obtenir les insights plateforme | ✅ |
 
 ## 📄 Pages Frontend
 
@@ -408,35 +539,6 @@ Tous les boutons et éléments interactifs utilisent des **dégradés de couleur
 ✓ Vérifiez les erreurs dans la console navigateur
 ```
 
--------
-
-## 💡 Conseils de Développement
-
-### Ajouter des cours via API
-
-```bash
-curl -X POST http://localhost:3000/api/courses \
-  -H "Authorization: Bearer YOUR_JWT_TOKEN" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "title": "React Avancé",
-    "description": "Maîtrisez React avec les hooks avancés",
-    "instructor": "Jane Doe"
-  }'
-```
-
-### Afficher les logs du serveur
-```bash
-# Dans le terminal backend, vous verrez les logs de chaque requête
-# grâce à morgan
-```
-
-### Déboguer l'authentification
-```javascript
-// Vérifiez le token dans la console navigateur
-console.log(localStorage.getItem('token'));
-```
-
 ------
 
 ## 📚 Exemples de Cours à Créer
@@ -448,7 +550,8 @@ console.log(localStorage.getItem('token'));
 5. **GraphQL Basics** - Alternative à REST API
 
 
-https://soa333-3739.postman.co/workspace/My-Workspace~8d6438f5-c1d3-4ae1-89a0-a58eeda54b2a/request/41658174-bfaab36b-40ff-4b5f-80ed-d087bdf3ef61?action=share&creator=41658174&ctx=documentation
+
+
 ------
 
 ## 👨‍💻 Auteur
@@ -463,3 +566,5 @@ Développé pour le cours MERN - Plateforme EduPlatform
 Ce projet est à des fins éducatives.
 
 ---
+
+

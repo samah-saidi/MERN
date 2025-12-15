@@ -11,6 +11,12 @@ import Profile from './pages/Profile';
 import ProfileEdit from './pages/ProfileEdit';
 import MyReviews from './pages/MyReviews';
 import NotFound from './pages/NotFound';
+import CourseAnalysis from "./pages/CourseAnalysis";
+import GenerateDescription from "./pages/GenerateDescription";
+import PersonalizedCourses from "./pages/PersonalizedCourses";
+import AdminDashboard from "./pages/AdminDashboard";
+import CourseQuiz from "./pages/CourseQuiz";
+import Chatbot from './pages/Chatbot';
 
 function App() {
   return (
@@ -23,6 +29,8 @@ function App() {
         <Route path="/courses" element={<Courses />} />
         <Route path="/courses/:id" element={<CourseDetails />} />
         
+        <Route path="/chatbot" element={<Chatbot />} />
+
         <Route
           path="/profile"
           element={
@@ -49,7 +57,52 @@ function App() {
             </ProtectedRoute>
           }
         />
-        
+        <Route
+          path="/courses/:id/analysis"
+          element={
+            <ProtectedRoute>
+              <CourseAnalysis />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/courses/:id/quiz"
+          element={
+            <ProtectedRoute>
+              <CourseQuiz />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/generate-description"
+          element={
+            <ProtectedRoute>
+              <GenerateDescription />
+            </ProtectedRoute>
+          }
+        />
+
+
+        <Route
+          path="/admin-dashboard"
+          element={
+            <ProtectedRoute>
+              <AdminDashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/personalized-courses"
+          element={
+            <ProtectedRoute>
+              <PersonalizedCourses />
+            </ProtectedRoute>
+          }
+        />
+
         {/* 404 - Must be last */}
         <Route path="*" element={<NotFound />} />
       </Routes>

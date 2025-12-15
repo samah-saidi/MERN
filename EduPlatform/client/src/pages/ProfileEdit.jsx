@@ -14,9 +14,17 @@ function ProfileEdit() {
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState('');
   const [profileExists, setProfileExists] = useState(false);
+  
+  // Bio Generator states
+  const [showBioGenerator, setShowBioGenerator] = useState(false);
+  const [bioForm, setBioForm] = useState({
+    interests: '',
+    experience: '',
+    goals: ''
+  });
+  const [generatingBio, setGeneratingBio] = useState(false);
 
   useEffect(() => {
-    // Charger le profil existant
     api.get(`/users/${user.id}/profile`)
       .then(res => {
         setFormData({
@@ -26,9 +34,7 @@ function ProfileEdit() {
         setProfileExists(true);
         setLoading(false);
       })
-      .catch(err => {
-        console.error(err);
-        // Si le profil n'existe pas, on reste en mode création
+      .catch(() => {
         setProfileExists(false);
         setLoading(false);
       });
@@ -41,6 +47,37 @@ function ProfileEdit() {
     });
   };
 
+  const handleBioFormChange = (e) => {
+    setBioForm({
+      ...bioForm,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const generateBio = async () => {
+    if (!bioForm.interests || !bioForm.experience) {
+      setMessage('Veuillez remplir au moins les intérêts et l\'expérience');
+      return;
+    }
+
+    setGeneratingBio(true);
+    setMessage('');
+
+    try {
+      const res = await api.post('/ai/generate-bio', bioForm);
+      setFormData(prev => ({
+        ...prev,
+        bio: res.data.data.bio
+      }));
+      setShowBioGenerator(false);
+      setMessage('Bio générée avec succès ! Vous pouvez la modifier avant de sauvegarder.');
+    } catch (err) {
+      setMessage(err.response?.data?.message || 'Erreur lors de la génération de la bio');
+    } finally {
+      setGeneratingBio(false);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSaving(true);
@@ -48,11 +85,9 @@ function ProfileEdit() {
 
     try {
       if (profileExists) {
-        // Mettre à jour le profil existant
         await api.put(`/users/${user.id}/profile`, formData);
         setMessage('Profil mis à jour avec succès !');
       } else {
-        // Créer un nouveau profil
         await api.post(`/users/${user.id}/profile`, formData);
         setMessage('Profil créé avec succès !');
         setProfileExists(true);
@@ -82,17 +117,134 @@ function ProfileEdit() {
 
       <form onSubmit={handleSubmit} style={{ marginTop: '30px' }}>
         <div style={{ marginBottom: '25px' }}>
-          <label
-            htmlFor="bio"
-            style={{
-              display: 'block',
-              marginBottom: '8px',
-              fontWeight: 'bold',
-              color: '#2c3e50'
-            }}
-          >
-            Bio
-          </label>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+            <label
+              htmlFor="bio"
+              style={{
+                fontWeight: 'bold',
+                color: '#2c3e50'
+              }}
+            >
+              Bio
+            </label>
+            <button
+              type="button"
+              onClick={() => setShowBioGenerator(!showBioGenerator)}
+              style={{
+                padding: '8px 16px',
+                backgroundColor: showBioGenerator ? '#95a5a6' : '#3498db',
+                color: 'white',
+                border: 'none',
+                borderRadius: '8px',
+                cursor: 'pointer',
+                fontSize: '14px',
+                fontWeight: '500',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px'
+              }}
+            >
+              {showBioGenerator ? 'Fermer' : '✨ Générer avec IA'}
+            </button>
+          </div>
+
+          {/* Bio Generator Panel */}
+          {showBioGenerator && (
+            <div style={{
+              padding: '20px',
+              backgroundColor: '#f8f9ff',
+              borderRadius: '12px',
+              marginBottom: '15px',
+              border: '2px solid #3498db'
+            }}>
+              <h4 style={{ margin: '0 0 15px 0', color: '#3498db' }}>
+                🤖 Générateur de Bio IA
+              </h4>
+              <p style={{ color: '#666', fontSize: '14px', marginBottom: '15px' }}>
+                Remplissez les informations ci-dessous pour générer une bio professionnelle personnalisée.
+              </p>
+              
+              <div style={{ marginBottom: '15px' }}>
+                <label style={{ display: 'block', marginBottom: '5px', fontWeight: '500', color: '#333' }}>
+                  🎯 Vos intérêts *
+                </label>
+                <input
+                  type="text"
+                  name="interests"
+                  value={bioForm.interests}
+                  onChange={handleBioFormChange}
+                  placeholder="Ex: développement web, machine learning, design UI/UX"
+                  style={{
+                    width: '100%',
+                    padding: '10px',
+                    border: '1px solid #ddd',
+                    borderRadius: '8px',
+                    fontSize: '14px'
+                  }}
+                />
+              </div>
+
+              <div style={{ marginBottom: '15px' }}>
+                <label style={{ display: 'block', marginBottom: '5px', fontWeight: '500', color: '#333' }}>
+                  💼 Votre expérience *
+                </label>
+                <input
+                  type="text"
+                  name="experience"
+                  value={bioForm.experience}
+                  onChange={handleBioFormChange}
+                  placeholder="Ex: 3 ans en développement, étudiant en informatique"
+                  style={{
+                    width: '100%',
+                    padding: '10px',
+                    border: '1px solid #ddd',
+                    borderRadius: '8px',
+                    fontSize: '14px'
+                  }}
+                />
+              </div>
+
+              <div style={{ marginBottom: '15px' }}>
+                <label style={{ display: 'block', marginBottom: '5px', fontWeight: '500', color: '#333' }}>
+                  🎓 Vos objectifs (optionnel)
+                </label>
+                <input
+                  type="text"
+                  name="goals"
+                  value={bioForm.goals}
+                  onChange={handleBioFormChange}
+                  placeholder="Ex: devenir expert full-stack, créer ma startup"
+                  style={{
+                    width: '100%',
+                    padding: '10px',
+                    border: '1px solid #ddd',
+                    borderRadius: '8px',
+                    fontSize: '14px'
+                  }}
+                />
+              </div>
+
+              <button
+                type="button"
+                onClick={generateBio}
+                disabled={generatingBio}
+                style={{
+                  width: '100%',
+                  padding: '12px',
+                  backgroundColor: generatingBio ? '#a0a0a0' : '#3498db',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '8px',
+                  cursor: generatingBio ? 'not-allowed' : 'pointer',
+                  fontSize: '15px',
+                  fontWeight: '600'
+                }}
+              >
+                {generatingBio ? '⏳ Génération en cours...' : '✨ Générer ma bio'}
+              </button>
+            </div>
+          )}
+
           <textarea
             id="bio"
             name="bio"

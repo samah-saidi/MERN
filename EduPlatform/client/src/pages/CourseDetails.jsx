@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import api from '../api/axios';
 import Swal from 'sweetalert2';
+import SimilarCourses from '../components/SimilarCourses';
 
 function CourseDetails() {
   const { id } = useParams();
@@ -136,6 +137,40 @@ function CourseDetails() {
         S'inscrire au cours
       </button>
 
+      <Link
+        to={`/courses/${id}/analysis`}
+        style={{
+          display: 'inline-block',
+          marginTop: '20px',
+          marginLeft: '10px',
+          padding: '15px 30px',
+          backgroundColor: '#9b59b6',
+          color: 'white',
+          textDecoration: 'none',
+          borderRadius: '5px',
+          fontSize: '16px'
+        }}
+      >
+        Voir l'Analyse IA
+      </Link>
+
+      <Link
+        to={`/courses/${id}/quiz`}
+        style={{
+          display: 'inline-block',
+          marginTop: '20px',
+          marginLeft: '10px',
+          padding: '15px 30px',
+          backgroundColor: '#3498db',
+          color: 'white',
+          textDecoration: 'none',
+          borderRadius: '5px',
+          fontSize: '16px'
+        }}
+      >
+        🎯 Quiz IA
+      </Link>
+
       <h2 style={{ marginTop: '40px' }}>Avis des étudiants</h2>
 
       {/* Formulaire d'ajout de review */}
@@ -252,6 +287,7 @@ function CourseDetails() {
           ))
         )}
       </div>
+      <SimilarCourses courseId={id} />
     </div>
   );
 }
